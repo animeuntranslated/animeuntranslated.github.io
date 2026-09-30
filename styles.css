@@ -52,3 +52,6 @@ header{height:78px}.brand-jp{margin-top:2px}.hero{min-height:610px;padding-top:8
 .ico.torii:before{left:3px}
 .ico.torii:after{left:8px}
 @media(max-width:650px){.benefits>div:nth-child(2) .ico.torii{transform:translateX(-1px)}}
+
+.ico.kanji-mark{display:flex!important;align-items:center;justify-content:center;font-family:Georgia,"Times New Roman",serif;font-style:normal;font-weight:700;font-size:25px;line-height:1;border:1.6px solid currentColor;border-radius:50%;width:31px;height:31px}
+@media(max-width:650px){.ico.kanji-mark{width:25px;height:25px;font-size:19px}}
