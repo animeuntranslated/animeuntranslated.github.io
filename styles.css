@@ -21,3 +21,28 @@ header{height:78px}.brand-jp{margin-top:2px}.hero{min-height:610px;padding-top:8
 .sakura{width:150px;height:125px;top:12px;right:-18px;opacity:.27}
 .latest{padding-top:58px;padding-bottom:58px}.section-head{padding-bottom:14px}.article-card{padding-top:22px}
 }
+
+/* final mobile cleanup */
+.kanji,.brand-jp,.search{display:none!important}
+.article-copy>b{display:block;color:var(--clay);font-size:12px;letter-spacing:.12em;margin-bottom:18px}
+@media(max-width:650px){
+ header{height:72px}
+ header>div{display:flex;align-items:center}
+ nav{gap:0}
+ .hero{min-height:600px;padding-top:8vh}
+ .benefits{display:flex!important;flex-direction:row!important;width:100%;padding:30px 4vw!important;gap:0!important}
+ .benefits>div{display:flex!important;flex:1 1 0!important;flex-direction:column!important;align-items:center!important;text-align:center!important;justify-content:flex-start!important;padding:0 8px!important;border-right:1px solid var(--rule)!important}
+ .benefits>div:last-child{border-right:0!important}
+ .benefits .ico{display:block!important;flex:none!important;margin:0 auto 10px!important}
+ .benefits h3{font-family:Georgia,serif!important;font-size:13px!important;line-height:1.15!important;margin:0 0 7px!important}
+ .benefits p{font-size:11px!important;line-height:1.35!important;margin:0!important}
+ .latest{padding:56px 6vw!important}
+ .section-head{display:flex!important;align-items:center!important;justify-content:space-between!important}
+ .article-card{display:grid!important;grid-template-columns:minmax(0,1fr) 42%!important;gap:18px!important;align-items:stretch!important;padding:24px 0!important}
+ .article-copy{min-width:0}
+ .article-card h3{font-family:Georgia,serif!important;font-size:25px!important;line-height:1.05!important;margin:0 0 12px!important}
+ .article-card p{font-size:14px!important;line-height:1.45!important;margin:0!important}
+ .article-art{grid-column:auto!important;min-height:170px!important;border-radius:6px!important;padding:15px!important}
+ .article-art span{font-size:44px!important}
+ .article-art small{font-size:8px!important;line-height:1.4!important;text-align:center!important;letter-spacing:.08em!important}
+}
