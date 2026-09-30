@@ -46,3 +46,9 @@ header{height:78px}.brand-jp{margin-top:2px}.hero{min-height:610px;padding-top:8
  .article-art span{font-size:44px!important}
  .article-art small{font-size:8px!important;line-height:1.4!important;text-align:center!important;letter-spacing:.08em!important}
 }
+
+/* optical alignment for the center torii icon */
+.benefits>div:nth-child(2) .ico.torii{transform:translateX(-1px)}
+.ico.torii:before{left:3px}
+.ico.torii:after{left:8px}
+@media(max-width:650px){.benefits>div:nth-child(2) .ico.torii{transform:translateX(-1px)}}
