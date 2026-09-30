@@ -1,8 +1,147 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Anime Untranslated — What subtitles don't tell you.</title><meta name="description" content="Japanese meanings, wordplay and cultural context hidden between the lines of your favorite anime."><link rel="stylesheet" href="styles.css"></head><body>
-<header><div><a class="brand" href="/">ANIME <span>UNTRANSLATED</span></a></div><nav><a href="#explore">Explore</a><a href="#about">About</a></nav></header>
-<main><section class="hero"><p class="eyebrow">ANIME • JAPANESE • CONTEXT</p><h1>What<br>subtitles<br><em>don't tell you.</em></h1><p class="lead">Japanese meanings, wordplay and cultural context hidden between the lines of your favorite anime.</p><a class="button" href="#explore">Start exploring →</a></section>
-<section id="explore" class="benefits"><div><i class="ico book" aria-hidden="true"></i><h3>Deeper Meaning</h3><p>Go beyond the translation.</p></div><div><i class="ico kanji-mark" aria-hidden="true">文</i><h3>Japanese Context</h3><p>See the culture behind the words.</p></div><div><i class="ico bubble" aria-hidden="true"></i><h3>Real Examples</h3><p>From popular anime scenes.</p></div></section>
-<section class="featured"><svg class="sakura" viewBox="0 0 260 210" aria-hidden="true"><path d="M250 8C190 34 160 73 119 111S55 158 9 194M186 51c-8-19-2-35 17-43 10 15 6 32-17 43Zm-21 22c-20-5-32-18-28-38 18-3 31 9 28 38Zm-35 36c-4-22 5-37 26-42 9 17 1 34-26 42Zm-31 31c-21 1-35-8-39-27 16-10 33-1 39 27Zm-34 26c-4-19 3-33 21-40 11 13 6 29-21 40Z"/></svg><p class="kicker">COMING FIRST</p><h2>Stories worth<br>reading twice.</h2><p>Explore the original language and the hidden meanings behind your favorite anime.</p><div class="chips"><span>Frieren</span><span>Jujutsu Kaisen</span><span>Attack on Titan</span><span>Demon Slayer</span><span>ONE PIECE</span></div></section>
-<section id="latest" class="latest"><div class="section-head"><p class="kicker">LATEST ARTICLES</p><span>View all →</span></div><a class="article-card article-link" href="articles/sousou-no-frieren-meaning.html"><div class="article-copy"><b>01</b><h3>What Does “Sousou no Frieren” Really Mean?</h3><p>The Japanese title, its meaning, and what gets lost in translation.</p></div><div class="article-art" aria-hidden="true"><span>葬送</span><small>SŌSŌ · funeral procession / seeing off the dead</small></div></a></section>
-<section id="about" class="about"><p class="kicker">OUR PERSPECTIVE</p><h2>Anime starts in Japanese.<br>So does our analysis.</h2><p>Anime Untranslated looks at the original language first—then explains what changes, disappears or gains new meaning when it crosses into English.</p></section></main>
-<footer><div class="brand">ANIME <span>UNTRANSLATED</span></div><p>What subtitles don't tell you.</p><small>© 2026 Anime Untranslated</small></footer></body></html>
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MENSETU — 声で練習するAI面接</title>
+  <meta name="description" content="ESをもとに、声で本番さながらの面接練習。優しい・普通・鬼の3タイプから選べます。">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">MENSETU<span>.</span></a>
+    <div class="status-pill"><span></span> Prototype</div>
+  </header>
+
+  <main>
+    <section id="setupView" class="view active">
+      <div class="intro">
+        <p class="eyebrow">VOICE INTERVIEW PRACTICE</p>
+        <h1>本番の前に、<br><em>声で答える。</em></h1>
+        <p class="lead">ESをもとに、実際の面接のように質問します。回答中は遮りません。</p>
+      </div>
+
+      <form id="setupForm" class="setup-card">
+        <div class="step">
+          <div class="step-head"><span>01</span><h2>あなたについて</h2></div>
+          <div class="grid two">
+            <label>応募区分
+              <select id="careerType">
+                <option value="newgrad">新卒</option>
+                <option value="midcareer">中途</option>
+              </select>
+            </label>
+            <label>職種 <small>任意</small>
+              <input id="jobType" type="text" placeholder="例：マーケティング">
+            </label>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-head"><span>02</span><h2>ESを入力</h2></div>
+          <p class="helper">3項目のうち、最低1つ入力してください。</p>
+
+          <div id="newgradFields" class="es-fields">
+            <label>志望動機
+              <textarea id="motivation" rows="4" placeholder="あなたの志望動機を貼り付け"></textarea>
+            </label>
+            <label>自己PR
+              <textarea id="selfPr" rows="4" placeholder="あなたの自己PRを貼り付け"></textarea>
+            </label>
+            <label>ガクチカ
+              <textarea id="gakuchika" rows="4" placeholder="学生時代に力を入れたこと"></textarea>
+            </label>
+          </div>
+
+          <div id="midcareerFields" class="es-fields hidden">
+            <label>転職理由
+              <textarea id="reasonChange" rows="4" placeholder="転職を考えた理由"></textarea>
+            </label>
+            <label>自己PR
+              <textarea id="midSelfPr" rows="4" placeholder="あなたの強み・自己PR"></textarea>
+            </label>
+            <label>職務経歴・実績
+              <textarea id="careerHistory" rows="5" placeholder="担当業務、役割、実績など"></textarea>
+            </label>
+          </div>
+          <p id="esError" class="error hidden">ESを最低1項目入力してください。</p>
+        </div>
+
+        <div class="step">
+          <div class="step-head"><span>03</span><h2>面接官を選ぶ</h2></div>
+          <div class="interviewers">
+            <label class="mode-card">
+              <input type="radio" name="mode" value="gentle" checked>
+              <div><b>優しい</b><span>一般質問から入り、穏やかに深掘り</span></div>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="mode" value="normal">
+              <div><b>普通</b><span>本番想定。ESと一般質問を自然に深掘り</span></div>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="mode" value="hard">
+              <div><b>鬼</b><span>根拠・数字・本人の役割まで容赦なく確認</span></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-head"><span>04</span><h2>質問数</h2></div>
+          <div class="count-picker">
+            <label><input type="radio" name="count" value="10" checked><span>10問</span></label>
+            <label><input type="radio" name="count" value="15"><span>15問</span></label>
+            <label><input type="radio" name="count" value="20"><span>20問</span></label>
+          </div>
+        </div>
+
+        <button class="primary" type="submit">面接をはじめる <span>→</span></button>
+        <p class="privacy">マイクは面接中のみ使用します。この試作版では音声データをサーバー保存しません。</p>
+      </form>
+    </section>
+
+    <section id="interviewView" class="view interview-view">
+      <div class="interview-shell">
+        <div class="interview-top">
+          <div>
+            <p id="modeLabel" class="eyebrow">NORMAL INTERVIEWER</p>
+            <h2>模擬面接</h2>
+          </div>
+          <div class="progress-wrap"><span id="progressText">1 / 10</span><div class="progress"><i id="progressBar"></i></div></div>
+        </div>
+
+        <div class="question-card">
+          <div class="avatar" id="avatarFace">面</div>
+          <p class="speaker">INTERVIEWER</p>
+          <h3 id="questionText">それでは、面接を始めます。</h3>
+          <button id="replayQuestion" class="ghost" type="button">🔊 もう一度聞く</button>
+        </div>
+
+        <div class="answer-panel">
+          <div id="timer" class="timer">00:00</div>
+          <div id="micState" class="mic-state"><span class="mic-dot"></span>待機中</div>
+          <button id="answerButton" class="record-btn" type="button">🎙 回答を開始</button>
+          <p id="supportText" class="support">ボタンを押してから回答してください。話している途中で次の質問には進みません。</p>
+          <div id="transcriptBox" class="transcript hidden">
+            <p>文字起こし</p>
+            <div id="transcriptText"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultView" class="view">
+      <div class="result-shell">
+        <p class="eyebrow">INTERVIEW COMPLETE</p>
+        <h2>おつかれさまでした。</h2>
+        <p class="lead">今回の質問と回答時間を振り返れます。</p>
+        <div id="summaryStats" class="summary-stats"></div>
+        <div id="resultList" class="result-list"></div>
+        <button id="restartButton" class="primary" type="button">もう一度練習する <span>↻</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 MENSETU Prototype</footer>
+  <script src="script.js"></script>
+</body>
+</html>
