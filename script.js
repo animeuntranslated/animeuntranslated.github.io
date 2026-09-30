@@ -16,6 +16,8 @@ let startedAt = 0;
 let timerId = null;
 let recognition = null;
 let liveTranscript = '';
+let buttonState = 'ready';
+let pendingTranscript = '';
 
 const generalNewgrad = [
   'まず、簡単に自己紹介をお願いします。',
@@ -199,7 +201,17 @@ function showQuestion() {
 }
 
 $('#replayQuestion').addEventListener('click', () => speak(questions[currentIndex].text));
-$('#answerButton').addEventListener('click', () => listening ? stopAnswer() : startAnswer());
+$('#answerButton').addEventListener('click', () => {
+  if (buttonState === 'ready') return startAnswer();
+  if (buttonState === 'recording') return stopAnswer();
+  if (buttonState === 'next') {
+    currentIndex++;
+    applyAdaptiveFollowup(pendingTranscript);
+    pendingTranscript = '';
+    buttonState = 'ready';
+    showQuestion();
+  }
+});
 
 function speak(text) {
   if (!('speechSynthesis' in window)) return;
@@ -239,8 +251,9 @@ function configureRecognition() {
 }
 
 function startAnswer() {
-  speechSynthesis?.cancel();
+  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
   listening = true;
+  buttonState = 'recording';
   liveTranscript = '';
   startedAt = Date.now();
   $('#answerButton').textContent = '■ 回答を終了';
@@ -275,21 +288,13 @@ function stopAnswer() {
   $('#answerButton').textContent = '次の質問へ →';
   $('#answerButton').classList.remove('live');
 
-  const btn = $('#answerButton');
-  btn.onclick = () => {
-    btn.onclick = null;
-    btn.addEventListener('click', defaultButtonHandler, {once:true});
-    currentIndex++;
-    injectAdaptiveFollowup(transcript);
-    showQuestion();
-  };
+  pendingTranscript = transcript;
+  buttonState = 'next';
 }
 
-function defaultButtonHandler(){}
-
-function injectAdaptiveFollowup(text) {
-  if (!text || currentIndex >= config.count-1) return;
-  const nextPos = currentIndex + 1;
+function applyAdaptiveFollowup(text) {
+  if (!text || currentIndex >= config.count) return;
+  const nextPos = currentIndex;
   let adaptive = null;
   if (/\d|％|%|パーセント|売上|改善|増加|削減/.test(text)) {
     adaptive = config.mode === 'hard'
@@ -312,13 +317,11 @@ function updateTimer() {
   $('#timer').textContent = `${m}:${s}`;
 }
 
-// Stable click handler when not in "next" state
-$('#answerButton').addEventListener('click', () => {}, false);
 
 function finishInterview() {
   listening = false;
   clearInterval(timerId);
-  speechSynthesis?.cancel();
+  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
   interviewView.classList.remove('active');
   resultView.classList.add('active');
 
